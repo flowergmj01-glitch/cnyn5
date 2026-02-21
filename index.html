@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台灣舊正月日語教材 (N5進階版)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    ruby { font-family: sans-serif; }
+    rt { font-size: 0.6em; color: #666; font-weight: normal; }
+    .bg-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ctext x='5' y='25' font-size='20'%3E🧧%3C/text%3E%3Ctext x='35' y='25' font-size='20'%3E🧨%3C/text%3E%3Ctext x='5' y='55' font-size='20'%3E🥟%3C/text%3E%3Ctext x='35' y='55' font-size='20'%3E🏮%3C/text%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-color: #fff7ed;
+    }
+    .fade-in { animation: fadeIn 0.3s ease-in-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    /* 隱藏卷軸但保留滑動功能 */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-pattern min-h-screen flex items-center justify-center p-4 font-sans text-gray-800 transition-all duration-300">
+
+  <div class="w-full max-w-3xl bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden flex flex-col h-[90vh] sm:h-[750px] border border-red-100">
+    
+    <!-- Header -->
+    <div id="app-header" class="bg-gradient-to-r from-red-600 to-red-500 p-5 text-white flex justify-between items-center shadow-md relative overflow-hidden">
+      <!-- 內容由 JS 渲染 -->
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="app-content" class="flex-1 p-6 sm:px-10 sm:py-8 overflow-y-auto no-scrollbar flex flex-col relative">
+      <!-- 內容由 JS 渲染 -->
+    </div>
+
+    <!-- Navigation Footer -->
+    <div id="app-footer" class="bg-gray-50/80 p-4 border-t border-gray-100 flex justify-between items-center backdrop-blur-sm">
+      <!-- 內容由 JS 渲染 -->
+    </div>
+
+  </div>
+
+  <script>
+    // 建立 Ruby 標音的輔助函數
+    const r = (k, f) => `<ruby>${k}<rt>${f}</rt></ruby>`;
+
+    const lessonData = [
+      // --- Section 1: 舊正月景象 ---
+      {
+        type: 'standard', icon: '🍽️',
+        title: `${r('家族', 'かぞく')}と ${r('食', 'た')}べる ${r('料理', 'りょうり')}`,
+        context: "情境：除夕夜的團圓飯", grammarPoint: "動詞辞書形／た形＋名詞",
+        contentBlock: [
+          { ja: `${r('母', 'はは')}の ${r('実家', 'じっか')}へ ${r('帰', 'かえ')}る ${r('電車', 'でんしゃ')}に ${r('乗', 'の')}ります。`, zh: "搭乘回媽媽老家的電車（車）。" },
+          { ja: `${r('家', 'いえ')}で ${r('母', 'はは')}が ${r('作', 'つく')}った ごちそうを ${r('待', 'ま')}ちます。`, zh: "在家等待媽媽做的大餐。" },
+          { ja: `${r('家族', 'かぞく')}みんなで ${r('食', 'た')}べる ご${r('飯', 'はん')}が ${r('一番', 'いちばん')}です。`, zh: "和全家人一起吃的飯是最棒的。" },
+        ],
+        vocab: [
+          { jp: `${r('帰', 'かえ')}る`, zh: "回家/回去" }, { jp: `${r('乗', 'の')}る`, zh: "搭乘" },
+          { jp: `${r('待', 'ま')}つ`, zh: "等待" }, { jp: `${r('作', 'つく')}った`, zh: "做了" },
+          { jp: `ごちそう`, zh: "大餐/佳餚" }
+        ]
+      },
+      {
+        type: 'standard', icon: '🧧',
+        title: `${r('年上', 'としうえ')}の${r('人', 'ひと')}が くれる お${r('年玉', 'としだま')}`,
+        context: "情境：發紅包的習俗", grammarPoint: "動詞て形＋いる＋名詞 / 動詞辞書形＋名詞",
+        contentBlock: [
+          { ja: `${r('働', 'はたら')}いている ${r('大人', 'おとな')}が ${r('子供', 'こども')}に お${r('年玉', 'としだま')}を あげます。`, zh: "在工作的大人會給小孩紅包。" },
+          { ja: `${r('私', 'わたし')}が もらった お${r('年玉', 'としだま')}を ${r('数', 'かぞ')}えます。`, zh: "數我收到的紅包。" },
+          { ja: `${r('今年', 'ことし')} ${r('使', 'つか')}う お${r('金', 'かね')}を ${r('考', 'かんが')}えます。`, zh: "思考今年要用的錢。" },
+        ],
+        vocab: [
+          { jp: `${r('働', 'はたら')}いている`, zh: "正在工作" }, { jp: `もらった`, zh: "收到了" },
+          { jp: `${r('数', 'かぞ')}える`, zh: "數" }, { jp: `${r('使', 'つか')}う`, zh: "使用" },
+          { jp: `${r('考', 'かんが')}える`, zh: "思考" },
+        ]
+      },
+      // --- Section 1.5: 新增中翻日 ---
+      {
+        type: 'translation', icon: '✍️',
+        title: `中日翻訳（ちゅうにちほんやく）`,
+        context: "題型：中翻日造句", grammarPoint: "提示：請務必使用「動詞的た形 / ている形修飾名詞」！",
+        questions: [
+          { zh: "吃昨天買的蛋糕。", ja: `${r('昨日', 'きのう')} ${r('買', 'か')}った ケーキを ${r('食', 'た')}べます。`, hint: "昨日・買う・ケーキ・食べる" },
+          { zh: "遇見了在學校教書的老師。", ja: `${r('学校', 'がっこう')}で ${r('教', 'おし')}えている ${r('先生', 'せんせい')}に ${r('会', 'あ')}いました。`, hint: "学校・教える・先生・会う" }
+        ],
+        vocab: [
+          { jp: `${r('昨日', 'きのう')}`, zh: "昨天" }, { jp: `${r('買', 'か')}った`, zh: "買了" },
+          { jp: `ケーキ`, zh: "蛋糕" }, { jp: `${r('教', 'おし')}えている`, zh: "正在教" },
+          { jp: `${r('先生', 'せんせい')}`, zh: "老師" }
+        ]
+      },
+      {
+        type: 'standard', icon: '📅',
+        title: `${r('旧正月', 'きゅうしょうがつ')}に する こと`,
+        context: "情境：過年期間的活動", grammarPoint: "動詞辞書形＋名詞（こと／もの）",
+        contentBlock: [
+          { ja: `${r('赤', 'あか')}い ${r('服', 'ふく')}を ${r('着', 'き')}る ${r('人', 'ひと')}が たくさん います。`, zh: "穿紅衣服的人有很多。" },
+          { ja: `${r('寺', 'てら')}へ ${r('行', 'い')}く ${r('準備', 'じゅんび')}を します。`, zh: "做去寺廟的準備。" },
+          { ja: `${r('神様', 'かみさま')}に お${r('願', 'ねが')}いする ことを ${r('考', 'かんが')}えます。`, zh: "思考要向神明許願的事情。" },
+        ],
+        vocab: [
+          { jp: `${r('着', 'き')}る`, zh: "穿(衣)" }, { jp: `${r('寺', 'てら')}`, zh: "寺廟" },
+          { jp: `${r('準備', 'じゅんび')}(を)する`, zh: "做準備" }, { jp: `${r('神様', 'かみさま')}`, zh: "神明" },
+          { jp: `お${r('願', 'ねが')}いする`, zh: "請求/許願" },
+        ]
+      },
+      // --- Section 2: LINE 對話 ---
+      {
+        type: 'line', largeText: true,
+        title: `LINEチャット：${r('何', 'なに')}を している？`,
+        context: "話題：台灣人跟日本人聊過年正在幹嘛", grammarPoint: "動詞ている形＋名詞",
+        chat: [
+          { user: 'jp', text: `リンさん、${r('今', 'いま')} ${r('何', 'なに')}を していますか。`, zh: "林桑，你現在在做什麼呢？" },
+          { user: 'tw', text: `${r('母', 'はは')}が ${r('作', 'つく')}った ${r('料理', 'りょうり')}を ${r('食', 'た')}べています。田中さんは？`, zh: "正在吃媽媽做的料理。田中先生呢？" },
+          { user: 'jp', text: `${r('神社', 'じんじゃ')}で ${r('祈', 'いの')}る ${r('人', 'ひと')}を ${r('見', 'み')}ています。`, zh: "我正在看在神社祈禱的人。" },
+        ],
+        vocab: [
+          { jp: `${r('何', 'なに')}`, zh: "什麼" }, { jp: `していますか`, zh: "正在做嗎" },
+          { jp: `${r('食', 'た')}べています`, zh: "正在吃" }, { jp: `${r('祈', 'いの')}る`, zh: "祈禱" },
+          { jp: `${r('見', 'み')}ています`, zh: "正在看" },
+        ]
+      },
+      {
+        type: 'line', largeText: false,
+        title: `LINEチャット：${r('食', 'た')}べるもの`,
+        context: "話題：比較日本御節料理與台灣水餃", grammarPoint: "動詞＋名詞（強調動作）",
+        chat: [
+          { user: 'jp', text: `${r('日本', 'にほん')}では おせち${r('料理', 'りょうり')}を ${r('食', 'た')}べる ${r('習慣', 'しゅうかん')}が あります。`, zh: "在日本有吃御節料理的習慣。" },
+          { user: 'tw', text: `${r('私', 'わたし')}の ${r('家', 'いえ')}では ${r('家族', 'かぞく')}みんなで ${r('作', 'つく')}る ${r('水餃子', 'すいぎょうざ')}を ${r('食', 'た')}べます。`, zh: "在我家會吃全家人一起做的水餃。" },
+          { user: 'jp', text: `へえ、みんなで ${r('作', 'つく')}る ${r('水餃子', 'すいぎょうざ')}！いいですね。`, zh: "誒～大家一起做的水餃！真好呢。" },
+        ],
+        vocab: [
+          { jp: `${r('習慣', 'しゅうかん')}`, zh: "習慣" }, { jp: `${r('家', 'いえ')}`, zh: "家" },
+          { jp: `${r('作', 'つく')}る`, zh: "做/包" }, { jp: `${r('水餃子', 'すいぎょうざ')}`, zh: "水餃" },
+          { jp: `みんなで`, zh: "大家一起" },
+        ]
+      },
+      {
+        type: 'line', largeText: false,
+        title: `LINEチャット：${r('音', 'おと')}と ${r('静', 'しず')}けさ`,
+        context: "話題：比較鞭炮聲與神社參拜", grammarPoint: "動詞ている形＋名詞",
+        chat: [
+          { user: 'tw', text: `${r('台湾', 'たいわん')}では ${r('爆竹', 'ばくちく')}を ${r('鳴', 'な')}らす ${r('音', 'おと')}が します。`, zh: "在台灣會聽到放鞭炮的聲音。" },
+          { user: 'jp', text: `${r('日本', 'にほん')}の ${r('神社', 'じんじゃ')}で ${r('祈', 'いの')}っている ${r('人', 'ひと')}は ${r('静', 'しず')}かですよ。`, zh: "在日本神社祈禱的人很安靜喔。" },
+          { user: 'tw', text: `そうですか。${r('違', 'ちが')}う ${r('文化', 'ぶんか')}を ${r('知', 'し')}る ことは おもしろいです。`, zh: "是這樣啊。了解不同的文化很有趣。" },
+        ],
+        vocab: [
+          { jp: `${r('爆竹', 'ばくちく')}`, zh: "鞭炮" }, { jp: `${r('鳴', 'な')}らす`, zh: "弄響/燃放" },
+          { jp: `${r('音', 'おと')}がします`, zh: "發出聲音" }, { jp: `${r('祈', 'いの')}っている`, zh: "正在祈禱" },
+          { jp: `${r('知', 'し')}る`, zh: "知道/了解" },
+        ]
+      },
+      // --- Section 3: 長輩的問候 ---
+      {
+        type: 'standard', icon: '❓',
+        title: `${r('親戚', 'しんせき')}の おじさん・おばさんの ${r('質問', 'しつもん')} (1)`,
+        context: "情境：關於工作與學業的靈魂拷問", grammarPoint: "動詞ている形／辞書形＋名詞（場所・予定）",
+        contentBlock: [
+          { ja: `「〇〇ちゃん、${r('今', 'いま')} ${r('働', 'はたら')}いている ${r('会社', 'かいしゃ')}は どこ？」`, zh: "「某某醬，你現在工作的公司在哪裡？」" },
+          { ja: `「${r('学校', 'がっこう')}で ${r('勉強', 'べんきょう')}する ことは ${r('終', 'お')}わった？」`, zh: "「在學校讀書的事情結束了嗎（畢業了嗎）？」" },
+          { ja: `（${r('答', 'こた')}える ことを ${r('考', 'かんが')}えます...）`, zh: "（思考要回答的事情...）" },
+        ],
+        vocab: [
+          { jp: `${r('親戚', 'しんせき')}`, zh: "親戚" }, { jp: `${r('質問', 'しつもん')}`, zh: "問題" },
+          { jp: `${r('会社', 'かいしゃ')}`, zh: "公司" }, { jp: `${r('終', 'お')}わる`, zh: "結束" },
+          { jp: `${r('答', 'こた')}える`, zh: "回答" },
+        ]
+      },
+      {
+        type: 'standard', icon: '❓',
+        title: `${r('親戚', 'しんせき')}の おじさん・おばさんの ${r('質問', 'しつもん')} (2)`,
+        context: "情境：關於感情狀況的靈魂拷問", grammarPoint: "動詞辞書形／ている形＋名詞（人・予定）",
+        contentBlock: [
+          { ja: `「${r('結婚', 'けっこん')}する ${r('予定', 'よてい')}は ある？」`, zh: "「有結婚的打算嗎？」" },
+          { ja: `「${r('今', 'いま')}、${r('付', 'つ')}き${r('合', 'あ')}っている ${r('人', 'ひと')}を ${r('連', 'つ')}れて ${r('来', 'き')}た？」`, zh: "「有帶現在交往的人來嗎？」" },
+          { ja: `（${r('聞', 'き')}こえない ふりを します...）`, zh: "（假裝沒聽見...）" },
+        ],
+        vocab: [
+          { jp: `${r('結婚', 'けっこん')}する`, zh: "結婚" }, { jp: `${r('予定', 'よてい')}`, zh: "預定/計畫" },
+          { jp: `${r('付', 'つ')}き${r('合', 'あ')}っている`, zh: "正在交往" }, { jp: `${r('連', 'つ')}れて${r('来', 'き')}た`, zh: "帶來了" },
+          { jp: `ふり(を)する`, zh: "假裝" },
+        ]
+      },
+      {
+        type: 'standard', icon: '❓',
+        title: `${r('親戚', 'しんせき')}の おじさん・おばさんの ${r('質問', 'しつもん')} (3)`,
+        context: "情境：關於未來的靈魂拷問", grammarPoint: "動詞辞書形＋名詞（つもり／こと）",
+        contentBlock: [
+          { ja: `「${r('日本', 'にほん')}へ ${r('行', 'い')}く つもりは ある？」`, zh: "「有打算去日本嗎？」" },
+          { ja: `「${r('将来', 'しょうらい')} する ことは ${r('決', 'き')}めた？」`, zh: "「將來要做的事情決定了嗎？」" },
+          { ja: `（たくさん ${r('食', 'た')}べる ことで ${r('忙', 'いそが')}しいです...）`, zh: "（因為忙著吃很多東西... [所以沒空回答]）" },
+        ],
+        vocab: [
+          { jp: `つもり`, zh: "打算/意圖" }, { jp: `${r('将来', 'しょうらい')}`, zh: "將來" },
+          { jp: `${r('決', 'き')}めた`, zh: "決定了" }, { jp: `${r('忙', 'いそが')}しい`, zh: "忙碌的" },
+          { jp: `${r('事', 'こと')}`, zh: "事情(名詞化)" },
+        ]
+      },
+      // --- Section 4: 多樣化造句練習 ---
+      {
+        type: 'practice_cloze', icon: '✍️',
+        title: `【${r('練習', 'れんしゅう')}1】${r('言葉', 'ことば')}を ${r('入', 'い')}れる`,
+        context: "題型：填入正確的動詞形態 (辞書形/た形/ている形)", grammarPoint: "練習目標：區分動作的時間點（現在・未來／過去／進行中）",
+        questions: [
+          { q: `これは ${r('母', 'はは')}が ____ ${r('料理', 'りょうり')}です。（${r('作', 'つく')}る）`, a: `${r('作', 'つく')}った`, hint: "已經做好的(過去)" },
+          { q: `あそこで ${r('歌', 'うた')}を ____ ${r('人', 'ひと')}は ${r('誰', 'だれ')}ですか。（${r('歌', 'うた')}う）`, a: `${r('歌', 'うた')}っている`, hint: "正在唱的(進行)" },
+          { q: `これは ${r('明日', 'あした')} ${r('着', 'き')}る ____ です。（${r('服', 'ふく')}）`, a: `${r('服', 'ふく')}`, hint: "名詞修飾名詞，不需要動詞變化" },
+        ],
+        vocab: [
+          { jp: `${r('入', 'い')}れる`, zh: "放入/填入" }, { jp: `${r('歌', 'うた')}う`, zh: "唱" },
+          { jp: `${r('誰', 'だれ')}`, zh: "誰" }, { jp: `${r('明日', 'あした')}`, zh: "明天" },
+          { jp: `ヒント`, zh: "提示" },
+        ]
+      },
+      {
+        type: 'practice_scramble', icon: '🧩',
+        title: `【${r('練習', 'れんしゅう')}2】${r('文', 'ぶん')}の 並べ替え`,
+        context: "題型：重組句子", grammarPoint: "練習目標：正確組合名詞修飾句",
+        questions: [
+          { words: ["料理", "母", "食べる", "作った", "が", "を"], a: `母 が 作った 料理 を 食べる` },
+          { words: ["乗る", "帰る", "に", "電車", "実家へ"], a: `実家へ 帰る 電車 に 乗る` }
+        ],
+        vocab: [
+          { jp: `並べ替え`, zh: "重組/排序" }, { jp: `${r('母', 'はは')}`, zh: "媽媽" },
+          { jp: `${r('食', 'た')}べる`, zh: "吃" }, { jp: `${r('実家', 'じっか')}`, zh: "老家" },
+          { jp: `${r('電車', 'でんしゃ')}`, zh: "電車" },
+        ]
+      },
+      {
+        type: 'practice_reason', icon: '💡',
+        title: `【${r('練習', 'れんしゅう')}3】${r('理由', 'りゆう')}を ${r('言', 'い')}う`,
+        context: "題型：運用動詞短句來說明喜歡舊正月的原因", grammarPoint: "動詞辞書形＋こと が 好きです / 動詞辞書形＋から",
+        qna: [
+          { q: `${r('旧正月', 'きゅうしょうがつ')}が ${r('好', 'す')}きですか。`, a: `はい、${r('好', 'す')}きです。` },
+          { q: `どうしてですか。(理由1：能見到大家)`, a: `${r('家族', 'かぞく')}みんなに ${r('会', 'あ')}う ことが できる からです。` },
+          { q: `どうしてですか。(理由2：喜歡吃好吃的東西)`, a: `おいしいものを たくさん ${r('食', 'た')}べる ことが ${r('好', 'す')}きだ からです。` },
+        ],
+        vocab: [
+          { jp: `${r('言', 'い')}う`, zh: "說" }, { jp: `${r('好', 'す')}き(な)`, zh: "喜歡的" },
+          { jp: `どうして`, zh: "為什麼" }, { jp: `できる`, zh: "能夠/會" },
+          { jp: `から`, zh: "因為(助詞)" },
+        ]
+      },
+      {
+        type: 'practice_free', icon: '✍️',
+        title: `【${r('練習', 'れんしゅう')}4】あなたの ${r('旧正月', 'きゅうしょうがつ')}`,
+        context: "題型：自由造句總結。請使用「動詞修飾名詞」的句型。", grammarPoint: "總結運用：創造三個有關聯的句子",
+        prompts: [
+          { p: `1. 今年の旧正月に ${r('行', 'い')}った ところ (今年舊正月去的地方)`, example: "例：家族と行ったレストラン" },
+          { p: `2. そこで ${r('食', 'た')}べた もの (在那裡吃的東西)`, example: "例：母が注文した魚料理" },
+          { p: `3. そこで ${r('会', 'あ')}った 人 (在那裡見到的人)`, example: "例：久しぶりに会った親戚" },
+        ],
+        vocab: [
+          { jp: `${r('今年', 'ことし')}`, zh: "今年" }, { jp: `そこ`, zh: "那裡(場所)" },
+          { jp: `${r('注文', 'ちゅうもん')}した`, zh: "點餐了" }, { jp: `${r('魚', 'さかな')}`, zh: "魚" },
+          { jp: `${r('久', 'ひさ')}しぶり`, zh: "好久不見" },
+        ]
+      }
+    ];
+
+    let currentPage = 0;
+    let revealed = {};
+
+    function nextPage() {
+      if (currentPage < lessonData.length - 1) {
+        currentPage++;
+        render();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        render();
+      }
+    }
+
+    function toggleReveal(pageIdx, itemIdx) {
+      const key = `${pageIdx}-${itemIdx}`;
+      revealed[key] = !revealed[key];
+      render();
+    }
+
+    function render() {
+      const data = lessonData[currentPage];
+      const headerDiv = document.getElementById('app-header');
+      const contentDiv = document.getElementById('app-content');
+      const footerDiv = document.getElementById('app-footer');
+
+      // 1. Render Header
+      headerDiv.innerHTML = `
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iMiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==')]"></div>
+        <div class="font-bold text-xl tracking-wider flex items-center gap-2 z-10">
+           <span class="text-2xl">🇹🇼</span> 台湾の旧正月 (N5文法)
+        </div>
+        <div class="text-sm font-bold bg-white/20 px-4 py-2 rounded-full backdrop-blur-md z-10 border border-white/30 shadow-sm">
+          Page ${currentPage + 1} / ${lessonData.length}
+        </div>
+      `;
+
+      // 2. Render Main Content
+      let specificContent = '';
+
+      if (data.type === 'standard') {
+        specificContent = `
+          <div class="space-y-6">
+            <div class="bg-red-50 border-l-4 border-red-500 p-3 rounded text-red-800 text-sm font-medium">
+              <span class="block font-bold text-red-600">文法焦點：${data.grammarPoint}</span>
+              <span class="block mt-1 text-red-700 opacity-80">${data.context}</span>
+            </div>
+            <div class="space-y-5 p-2">
+              ${data.contentBlock.map(item => `
+                <div class="group">
+                  <p class="text-xl sm:text-2xl font-medium text-gray-900 leading-[2.2] tracking-wider">${item.ja}</p>
+                  <p class="text-gray-500 text-sm mt-1 pl-1 transition-colors group-hover:text-red-500">${item.zh}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } 
+      else if (data.type === 'translation') {
+        specificContent = `
+          <div class="space-y-5">
+            <div class="bg-purple-50 border-l-4 border-purple-500 p-3 rounded text-purple-800 text-sm font-medium">
+              <span class="block font-bold text-purple-600">${data.grammarPoint}</span>
+              <span class="block mt-1 opacity-80">${data.context}</span>
+            </div>
+            <div class="space-y-4">
+              ${data.questions.map((q, idx) => {
+                const isRevealed = revealed[`${currentPage}-${idx}`];
+                return `
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-purple-100 relative">
+                  <p class="text-xl font-bold text-gray-800 mb-2">${q.zh}</p>
+                  <p class="text-xs text-gray-400 mb-4">(提示單字: ${q.hint})</p>
+                  <div class="flex items-center gap-3">
+                    <button onclick="toggleReveal(${currentPage}, ${idx})" class="px-4 py-2 ${isRevealed ? 'bg-gray-100 text-gray-600' : 'bg-purple-100 text-purple-700'} rounded-full text-sm font-bold hover:opacity-80 transition">
+                      ${isRevealed ? '隱藏日文' : '顯示日文'}
+                    </button>
+                    ${isRevealed ? `<span class="text-red-600 font-bold text-xl bg-red-50 px-4 py-2 rounded-md fade-in tracking-widest">${q.ja}</span>` : ''}
+                  </div>
+                </div>
+              `}).join('')}
+            </div>
+          </div>
+        `;
+      }
+      else if (data.type === 'line') {
+        const textSize = data.largeText ? 'text-2xl sm:text-3xl' : 'text-base sm:text-lg';
+        specificContent = `
+          <div class="space-y-4">
+            <div class="bg-green-50 border-l-4 border-green-500 p-3 rounded text-green-800 text-sm font-medium mb-4">
+              <span class="block font-bold text-green-600">文法焦點：${data.grammarPoint}</span>
+              <span class="block mt-1 text-green-700 opacity-80">${data.context}</span>
+            </div>
+            <div class="bg-[#849ebf] p-4 rounded-xl shadow-inner h-[320px] overflow-y-auto flex flex-col gap-4 no-scrollbar">
+              ${data.chat.map(msg => `
+                <div class="flex flex-col ${msg.user === 'tw' ? 'items-end' : 'items-start'}">
+                  <div class="flex items-end gap-2 ${msg.user === 'tw' ? 'flex-row-reverse' : ''}">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-xl shadow shrink-0">
+                      ${msg.user === 'jp' ? '🇯🇵' : '🇹🇼'}
+                    </div>
+                    <div class="max-w-[85%] p-3 rounded-xl shadow-sm relative ${
+                      msg.user === 'tw' 
+                        ? 'bg-[#85e249] text-black rounded-tr-none' 
+                        : 'bg-white text-black rounded-tl-none'
+                    }">
+                      <p class="${textSize} leading-[1.8] font-medium tracking-wide">${msg.text}</p>
+                    </div>
+                  </div>
+                  <p class="text-xs text-white/90 mt-1 px-14 ${msg.user === 'tw' ? 'text-right' : 'text-left'}">${msg.zh}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      else if (data.type === 'practice_cloze') {
+        specificContent = `
+          <div class="space-y-5">
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded text-blue-800 text-sm font-medium">${data.context}</div>
+            <ul class="space-y-4">
+              ${data.questions.map((q, idx) => {
+                const isRevealed = revealed[`${currentPage}-${idx}`];
+                return `
+                <li class="bg-white p-4 rounded-lg shadow-sm border border-blue-100">
+                  <p class="text-lg mb-3 leading-[2] font-medium tracking-wide">${q.q}</p>
+                  <div class="flex items-center gap-3">
+                    <button onclick="toggleReveal(${currentPage}, ${idx})" class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold hover:bg-blue-200 transition">
+                      ${isRevealed ? '隱藏答案' : '看答案'}
+                    </button>
+                    ${isRevealed ? `<span class="text-red-600 font-bold text-xl bg-red-50 px-3 py-1 rounded-md fade-in">${q.a}</span>` : ''}
+                    <span class="text-gray-400 text-xs italic ml-auto">${q.hint}</span>
+                  </div>
+                </li>
+              `}).join('')}
+            </ul>
+          </div>
+        `;
+      }
+      else if (data.type === 'practice_scramble') {
+        specificContent = `
+          <div class="space-y-5">
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded text-blue-800 text-sm font-medium">${data.context}</div>
+            <div class="space-y-6">
+              ${data.questions.map((q, idx) => {
+                const isRevealed = revealed[`${currentPage}-${idx}`];
+                return `
+                <div class="bg-white p-5 rounded-lg shadow-sm border border-blue-100">
+                  <div class="flex flex-wrap gap-3 mb-5 justify-center">
+                    ${q.words.map(w => `<span class="px-4 py-2 bg-gray-50 border-b-2 border-gray-300 rounded shadow-sm text-lg font-bold text-gray-700">${w}</span>`).join('')}
+                  </div>
+                  <div class="flex items-center gap-3 border-t border-gray-100 pt-4 justify-center flex-col sm:flex-row">
+                    <button onclick="toggleReveal(${currentPage}, ${idx})" class="px-5 py-2 ${isRevealed ? 'bg-gray-100 text-gray-500' : 'bg-blue-500 text-white'} rounded-full text-sm font-bold shadow-sm transition hover:opacity-90">
+                      ${isRevealed ? '隱藏解答' : '顯示正確順序'}
+                    </button>
+                    ${isRevealed ? `<span class="text-red-600 font-bold text-xl sm:text-2xl bg-red-50 px-4 py-2 rounded-lg fade-in tracking-widest text-center">${q.a}</span>` : ''}
+                  </div>
+                </div>
+              `}).join('')}
+            </div>
+          </div>
+        `;
+      }
+      else if (data.type === 'practice_reason') {
+        specificContent = `
+          <div class="space-y-5">
+            <div class="bg-green-50 border-l-4 border-green-500 p-3 rounded text-green-800 text-sm font-medium">
+              <span class="block font-bold text-green-600">文法焦點：${data.grammarPoint}</span>
+              <span class="block mt-1 opacity-80">${data.context}</span>
+            </div>
+            <div class="space-y-4">
+              ${data.qna.map((item, idx) => {
+                const isRevealed = revealed[`${currentPage}-${idx}`];
+                return `
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-green-100 cursor-pointer" onclick="toggleReveal(${currentPage}, ${idx})">
+                  <div class="flex gap-3 mb-2 items-start">
+                    <span class="font-bold text-green-600 text-xl">Q:</span>
+                    <p class="text-xl leading-[1.8] font-medium">${item.q}</p>
+                  </div>
+                  <div class="flex gap-3 pl-4 border-l-2 border-green-200 py-2 bg-green-50 rounded-r-lg items-center min-h-[50px]">
+                    <span class="font-bold text-red-600 text-xl">A:</span>
+                    ${isRevealed 
+                      ? `<p class="text-xl leading-[1.8] font-medium text-gray-800 fade-in tracking-wider">${item.a}</p>` 
+                      : `<button class="px-4 py-1.5 bg-green-200 text-green-800 rounded-full text-sm font-bold shadow-sm hover:bg-green-300 transition">看答案</button>`
+                    }
+                  </div>
+                </div>
+              `}).join('')}
+            </div>
+          </div>
+        `;
+      }
+      else if (data.type === 'practice_free') {
+        specificContent = `
+          <div class="space-y-5">
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded text-blue-800 text-sm font-medium">
+               <span class="block font-bold text-blue-600">文法焦點：${data.grammarPoint}</span>
+               <span class="block mt-1 opacity-80">${data.context}</span>
+            </div>
+            <div class="space-y-4">
+              ${data.prompts.map(item => `
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-dashed border-blue-300">
+                  <p class="text-base sm:text-lg font-bold text-blue-800 mb-2">${item.p}</p>
+                  <textarea class="w-full h-16 bg-gray-50 rounded border border-gray-200 p-3 text-gray-700 text-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-200" placeholder="請在此寫下你的句子..."></textarea>
+                  <p class="text-xs text-gray-500 mt-2 text-right">${item.example}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      // 3. Render Title & Vocabulary (Common)
+      const vocabHTML = `
+        <div class="mt-8 pt-4 border-t-2 border-dashed border-gray-200">
+          <h3 class="text-base font-bold text-gray-700 mb-3 flex items-center gap-2 uppercase tracking-wider">
+            <span class="w-1.5 h-5 bg-red-500 rounded-full inline-block shadow-sm"></span>
+            今ページの単語（たんご）
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            ${data.vocab.map(v => `
+              <div class="flex flex-col items-center justify-center bg-gradient-to-b from-white to-red-50 border border-red-100 p-2 rounded-xl shadow-sm text-center">
+                <span class="text-base font-bold text-gray-800 leading-tight mb-1">${v.jp}</span>
+                <span class="text-xs text-gray-500 w-full border-t border-red-100/50 pt-1">${v.zh}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      contentDiv.innerHTML = `
+        <div class="flex items-center gap-3 mb-6 pb-4 border-b-2 border-red-100/50">
+          <div class="w-10 h-10 bg-red-50 rounded-lg shadow-sm flex items-center justify-center text-2xl">${data.icon || '📖'}</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 leading-snug tracking-wide">
+            ${data.title}
+          </h2>
+        </div>
+        <div class="flex-1">${specificContent}</div>
+        ${vocabHTML}
+      `;
+
+      // 4. Render Footer
+      footerDiv.innerHTML = `
+        <button onclick="prevPage()" class="flex items-center justify-center gap-2 w-28 py-3 rounded-xl font-bold transition-all ${currentPage === 0 ? 'text-gray-300 bg-gray-100/50 cursor-not-allowed' : 'text-red-600 bg-white hover:bg-red-50 border border-red-100 shadow-sm hover:shadow'}" ${currentPage === 0 ? 'disabled' : ''}>
+          ◀ 前へ
+        </button>
+        <button onclick="nextPage()" class="flex items-center justify-center gap-2 w-28 py-3 rounded-xl font-bold transition-all ${currentPage === lessonData.length - 1 ? 'text-gray-300 bg-gray-100/50 cursor-not-allowed' : 'text-white bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 shadow-md hover:shadow-lg border border-red-600'}" ${currentPage === lessonData.length - 1 ? 'disabled' : ''}>
+          次へ ▶
+        </button>
+      `;
+    }
+
+    // 初始化渲染
+    render();
+  </script>
+</body>
+</html>
